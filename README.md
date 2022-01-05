@@ -5,13 +5,13 @@
 
 ## How-Tos
 ### Use existing container
-How to launch MuMoa, a docker container with RASA X on it. (Port 5002 is for RASA X, 5005 is for RASA Core, 5055 is for action server and port 80 for built-in web interface)
+How to launch a docker container with RASA X and the necessary packages in it. (Port 5002 is for RASA X, 5005 is for RASA Core, 5055 is for action server and port 80 for built-in web interface)
 
-Windows:    docker run -d -p 5005:5005 -p 5002:5002 -p 5055:5055 -p 80:80 -p 8888:8888 --name austin -e GRANT_SUDO=yes --user root -e JUPYTER_ENABLE_LAB=yes -v %cd%:/home/jovyan julianweng/mumoa
+Windows:    docker run -d -p 5005:5005 -p 5002:5002 -p 5055:5055 -p 80:80 -p 8888:8888 --name austin -e GRANT_SUDO=yes --user root -e JUPYTER_ENABLE_LAB=yes -v %cd%:/home/jovyan julianweng/austin
 
-Linux/Mac? (untested):  docker run -d -p 5005:5005 -p 5002:5002 -p 5055:5055 -p 80:80 -p 8888:8888 --name austin -e GRANT_SUDO=yes --user root -e JUPYTER_ENABLE_LAB=yes -v $pwd/home/jovyan julianweng/mumoa
+Linux/Mac? (untested with mac):  docker run -d -p 5005:5005 -p 5002:5002 -p 5055:5055 -p 80:80 -p 8888:8888 --name austin -e GRANT_SUDO=yes --user root -e JUPYTER_ENABLE_LAB=yes -v $PWD:/home/jovyan julianweng/austin
 
-Run various containers commands
+Run various containers commands (you only need the first three to talk with it and train it)
 
     docker exec -it austin rasa train --domain ./domain # train RASA model
     docker exec -it austin rasa run actions # run action server

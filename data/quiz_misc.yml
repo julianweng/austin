@@ -1,0 +1,31 @@
+version: "2.0"
+nlu:
+- intent: quizprogress
+  examples: |
+    - how well am I doing?
+    - How am I doing?
+    - how am I doing in [kinematic equations](problemType)?
+    - what's my progress with [stoich](problemType)
+    - am I doing good
+    - how many questions am I getting right in [chemistry](problemType)
+    - am I succeeding in [physics](problemType)?
+    - am I getting these right?
+    - how many of these am I getting right?
+    - should I work more on [free fall](problemType) problems?
+    - how am I doing when solving for [height](independentVar)?
+    - am I doing well in [f equals v times c](problemType)?
+    - am I getting questions right for [multivariable calculus](problemType) or nah?
+    - am I succeeding?
+    - am I doing well with [kinetic energy](independentVar)
+    - how is my progress concerning [rotational velocity](problemType) problems?
+    - am I getting most questions right in [slope](problemType) questions
+    - should I practice more with [gravitational potential](problemType)?
+    - check my progress with [rotational energy](problemType)
+    - check my success in [Bon Jovi solos](problemType)
+    - how am I doing in [centripetal acceleration](problemType)
+    - check my success with [centripetal acceleration](problemType)
+    - should I improve in dealing with [friction](problemType)
+    - when solving for [velocity](independentVar), how well am I doing?
+    - do I get things right when the question has [energy](independentVar) as the independent variable?
+    - what is my success rate with [height](independentVar) as the unknown
+    - how is my progress when solving for [jerk][independentVar]

@@ -1,0 +1,77 @@
+version: "2.0"
+rules:
+- rule: respond to chitchat
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+nlu:
+- intent: chitchat/ask_howbuilt
+  examples: |
+    - Can you explain how you were created?
+    - Can you give me an idea as to how you were created?
+    - Can you say how you were constructed?
+    - Do you know how you were built?
+    - Do you know how you were made?
+    - How did they build you?
+    - How did they create you?
+    - How did they make you?
+    - How were you built?
+    - How were you conceived?
+    - In what manner were you formed?
+    - In what way were you created?
+    - In what way were you made?
+    - how were you made?
+    - Are you built using rasa?
+    - Are u developed in rasa
+    - Are you build with rasa ?
+- intent: chitchat/ask_wherefrom
+  examples: |
+    - Are you from around here?
+    - Around where are you from?
+    - Do you know where you come from?
+    - From where did you come?
+    - What area are you from?
+    - What city are you in?
+    - Where are you located?
+    - Where are you?
+    - Where did you come from?
+    - Where do you live?
+    - Where from?
+    - Where were you born?
+    - what country are you from?
+    - where do you live
+    - where's your home town?
+    - where were you born?
+- intent: chitchat/ask_name
+  examples: |
+    - what is your name?
+    - May I know your name?
+    - What do people call you?
+    - Do you have a name?
+    - Tell me something about yourself?
+    - could you tell me your name?
+    - please tell me your name?
+    - introduce yourself
+    - To whom am I talking to?
+    - What’s your name?
+    - who are you
+    - I want to know you better
+    - I want to know more about you
+    - tell me about you
+    - tell me about yourself
+    - describe yourself
+    - Are you male or female?
+    - who are you?
+    - what are you?
+    - why do you exist?
+    - who made you?
+responses:
+  utter_chitchat:
+  - text: What else can I help?
+  - text: What else can I help you with today?
+  utter_chitchat/ask_name:
+  - text: I am Austin
+  utter_chitchat/ask_howbuilt:
+  - text: I was built using Rasa
+  utter_chitchat/ask_wherefrom:
+  - text: I am from Westport

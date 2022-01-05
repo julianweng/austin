@@ -1,0 +1,22 @@
+authtoken: insertngrokauthtokenhere
+tunnels:
+  web:
+    proto: http
+    addr: 80
+    bind-tls: true
+    hostname: austin.ngrok.io
+  rasa_action:
+    proto: http
+    addr: 5055
+    bind-tls: true
+    hostname: austinaction.ngrok.io
+  rasa_core:
+    proto: http
+    addr: 5005
+    bind-tls: true
+    hostname: austincore.ngrok.io
+  #rasa_rasa:
+  #  proto: http
+  #  addr: 5002
+  #  bind-tls: true
+  #  hostname: austinrasa.ngrok.io

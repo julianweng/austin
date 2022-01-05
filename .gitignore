@@ -1,0 +1,7 @@
+models/
+*/__pycache__/
+*.db*
+passcode*
+.*/*
+.bash_history
+*/.ipynb_checkpoints/

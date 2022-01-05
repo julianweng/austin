@@ -1,0 +1,62 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false
+intents:
+- demquiz:
+    use_entities: true
+- quizprogress:
+    use_entities: true
+- askamountcorrect:
+    use_entities: true
+entities: []
+slots:
+  answer:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  correct:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  independentVar:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  trueVar:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  problemType:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses:
+  utter_submit:
+  - text: You just submitted something
+  utter_slots_values:
+  - text: You just said {answer} as your answer
+actions:
+- utter_slots_values
+- utter_submit
+- action_answer
+- action_question
+- action_quizprogress
+forms:
+  trivia_form:
+    required_slots:
+      answer:
+      - type: from_text
+e2e_actions: []

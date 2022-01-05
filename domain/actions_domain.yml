@@ -1,0 +1,24 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- what_is:
+    use_entities: true
+- telljoke:
+    use_entities: true
+- inspire_me:
+    use_entities: true
+entities:
+- correct
+- independentVar
+- problemType
+slots: {}
+responses: {}
+actions:
+- action_joke
+- action_inspire
+forms: {}
+e2e_actions: []

@@ -1,0 +1,30 @@
+version: "2.0"
+nlu:
+- intent: telljoke
+  examples: |
+    - could you please tell a joke
+    - tell me a joke
+    - hey tell me a joke
+    - tell me something funny
+    - I am bored
+    - I am very bored
+    - do you know a joke?
+    - do you tell joke?
+- intent: inspire_me
+  examples: |
+    - inspire me
+    - inspire!
+    - quote?
+    - quote please?
+    - tell me something
+    - motivate me!
+    - say something inspiring
+rules:
+- rule: respond to tell a joke
+  steps:
+  - intent: telljoke
+  - action: action_joke
+- rule: respond to inspire
+  steps:
+  - intent: inspire_me
+  - action: action_inspire

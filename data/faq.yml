@@ -1,0 +1,37 @@
+version: "2.0"
+rules:
+- rule: respond to faq
+  steps:
+  - intent: faq
+  - action: utter_faq
+nlu:
+- intent: faq/help
+  examples: |
+    - what can you do?
+    - what's next?
+    - what things can you do?
+    - tell me more about you
+    - what can you help me with?
+    - help, what do you do
+    - how can you help me
+    - What are the things that you can do?
+    - What else can you help me with?
+    - can you do anything else?
+    - can you help me?
+    - cool! can I do something else here?
+    - hello what can you do for me
+    - help
+    - help me
+    - help please
+    - help?
+    - I need some details
+    - In what way you can help me?
+    - can you assist me here?
+    - I am new here! could you please help me?
+    - I have a question can you help me?
+    - what can you help me?
+responses:
+  utter_faq/help:
+  - text: I don't know what to do, someone else should help you.
+  utter_faq:
+  - text: I really don't know how to help you.

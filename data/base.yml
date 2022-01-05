@@ -1,0 +1,159 @@
+version: "2.0"
+nlu:
+- intent: thanks
+  examples: |
+    - great thanks
+    - thank you!
+    - thank you very much!
+    - thanks
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - how are you
+    - how do you do?
+    - how's going
+    - evening
+    - morning
+    - hey there
+    - let's go
+    - hey dude
+    - good morning
+    - good evening
+    - good afternoon
+    - morning!
+    - hi there
+    - hi morning
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - 99
+    - not really bye
+    - no bye bye
+    - nothing bye
+    - night night
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - exactly
+    - sure
+    - ok
+    - cool
+    - okey
+    - yep
+    - yeah
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: out_of_scope
+  examples: |
+    - are you smart?
+    - what is the square root of 5
+    - I want to know the weather
+    - what is the meaning of life.
+    - Fridge Isn't Running
+    - my tv isn't working
+    - I want a car
+    - my washing machine isn't working
+    - what year is it
+    - order a pizza
+    - I want to order a pizza
+    - Can I get a hamburger?
+    - Can YouTube talk?
+    - Can you call me back ?
+    - Can you give me your datacenter's password
+    - Can you make sandwiches?
+    - Can you please send me an uber
+    - ofif fsdfafsfs
+    - whom do you like the most
+    - what kind of ork are you doing?
+    - what are you good at
+    - why is sky [blue](subject)?
+    - are you a good runner?
+    - are you a [girl](subject)
+    - why is [sky](subject) blue
+    - do you like [george washington](subject)?
+    - are you [Julian Weng](subject)?
+    - can you drive?
+    - can you walk?
+    - do you like [beatles](subject)?
+    - have you been to [Taipei](subject)?
+    - what are you so mean
+    - am I late for work?
+    - which band does [john lennon](subject) belong to
+    - do you use [microsoft](subject) product?
+    - Is [taiwan](subject) better than [china](subject)?
+    - is [taiwan](subject) number one?
+    - how is the cloud formed?
+    - why is [sky](subject) so dark?
+    - I hate you
+    - do you love me
+    - how old are you
+    - what are you doing
+    - who is your favorite actor
+    - who is your favorite singer
+    - what is your favorite color
+    - are you happy?
+    - can you make me a frappuccino?
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  - text: How are you?
+  - text: What's up?
+  - text: Hi!
+  - text: Howdy!
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_goodbye:
+  - text: Bye
+  - text: See you next time!
+  utter_learnmore:
+  - text: I will send you the link about {subject}
+  - text: I will google {subject} for you.
+  utter_default:
+  - text: I didn't quite understand that. Could you rephrase?
+  utter_ok:
+  - text: 👍
+stories:
+- story: say ok after help
+  steps:
+  - action: utter_learnmore
+  - intent: affirm
+  - action: utter_ok
+rules:
+- rule: Out Of Scope Default
+  steps:
+  - intent: out_of_scope
+  - action: action_default
+- rule: greet
+  steps:
+  - intent: greet
+  - action: action_default
+- rule: Say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye

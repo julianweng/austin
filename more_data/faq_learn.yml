@@ -1,0 +1,23 @@
+version: "2.0"
+nlu:
+- intent: faq/learn
+  examples: |
+    - I want to learn [math](subject) ?
+    - how does [Math](subject) work?
+    - can you teach me [english](subject)?
+    - I want to learn [coding](subject)
+    - can you teach me [biology](subject)
+    - what is [biology](subject)?
+    - want to learn more about [chemistry](subject)
+    - what is [math](subject)?
+    - I am interested in [physics](subject)
+    - I am interested in [chemiatry](subject)
+    - can I learn [math](subject)?
+    - yes I like to learn [math](subject)
+    - want to learn [math](subject)
+    - can you teach me [coding](subject)?
+    - how do I learn [programming](subject)
+responses:
+  utter_faq/learn:
+  - text: I can help you with {subject}.
+  - text: I am very good at {subject}, I can teach you.

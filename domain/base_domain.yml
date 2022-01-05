@@ -1,0 +1,34 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- nlu_fallback:
+    use_entities: true
+- out_of_scope:
+    use_entities: true
+- thanks:
+    use_entities: true
+entities:
+- subject
+slots:
+  subject:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+responses: {}
+actions:
+- action_default
+forms: {}
+e2e_actions: []

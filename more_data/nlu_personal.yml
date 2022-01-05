@@ -1,0 +1,11 @@
+version: "2.0"
+nlu:
+- intent: chitchat/austin
+  examples: |
+    - what does austin do
+    - who is austin?
+    - what is austin good at
+    - what is your purpose
+responses:
+  utter_chitchat/austin:
+  - text: Austin is a tool designed to let you ace any kind of physics problem!

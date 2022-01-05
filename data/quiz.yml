@@ -1,0 +1,67 @@
+version: "2.0"
+nlu:
+- intent: demquiz
+  examples: |
+    - quiz me with [x]{"entity": "independentVar"} as the variable
+    - ask me a question with [y]{"entity": "independentVar"} as the independent variable
+    - make me find [mass]{"entity": "independentVar"} in a problem
+    - i want to solve for [area]{"entity": "independentVar"}
+    - i want to find the [volume]{"entity": "independentVar"} of a gallon of milk
+    - give me a problem to calculate the [width]{"entity": "independentVar"} of this
+    - quiz me on something
+    - give me a problem
+    - i'm having trouble solving for [density]{"entity": "independentVar"}, can you help me?
+    - can you give me a question to solve for [height]{"entity": "independentVar"}?
+    - quiz me on [spring systems]{"entity": "problemType"} with [bananas]{"entity": "independentVar"} as the unknown
+    - quiz me with [acceleration]{"entity": "independentVar"} as the unknown
+    - with [b]{"entity": "independentVar"} as the unknown variable, solve this equation
+    - help me with [gravity]{"entity": "problemType"} when not knowing [o]{"entity": "independentVar"}
+    - quiz me solving for [z]{"entity": "independentVar"} please.
+    - ask me a problem about change with [time]{"entity": "independentVar"} unknown
+    - make me solve for the [derivative of velocity]{"entity": "independentVar"}
+    - give me a [f equals m a]{"entity": "problemType"} problem
+    - let's do a [f equal m a]{"entity": "problemType"} with [m]{"entity": "independentVar"} as the independent variable
+    - quiz me on [free body]{"entity": "problemType"} problems with [x]{"entity": "independentVar"} unknown
+    - practice
+    - practice [centripetal acceleration]{"entity": "problemType"} and solve for [acceleration]{"entity": "independentVar"}
+    - solving for the variable [x]{"entity": "independentVar"}, let's do a [q]{"entity": "problemType"} question
+    - not knowing [potential energy]{"entity": "independentVar"}, give me a [potential energy]{"entity": "problemType"} problem
+    - how about [bases and acids] solving for [mols]{"entity": "independentVar"}
+    - let's do [stoich]{"entity": "problemType"}
+    - how about a [algebra]{"entity": "problemType"} problem?
+    - have me solve for the [second derivative]{"entity": "independentVar"} in any problem.
+    - solve for [marginal cost]{"entity": "independentVar"}
+    - hey, help me with [shakespeare acrobatics]{"entity": "problemType"}
+    - can we do a [rebound]{"entity": "problemType"} problem without knowing [time]{"entity": "independentVar"}
+    - let's do something with [ghost dancing]{"entity": "problemType"} solving for [form]{"entity": "independentVar"}
+    - help with [raw impedence]{"entity": "problemType"} please
+    - I need more practice with [kinematics]{"entity": "problemType"}
+    - help me practice [jungle juice]{"entity": "problemType"}
+    - help me master [dr morgan equations]{"entity": "problemType"} please
+rules:
+- rule: Activate form
+  steps:
+  - intent: demquiz
+  - slot_was_set:
+    - requested_slot: 'answer'
+    - answer: null
+  - action: action_question
+  - action: trivia_form
+  - active_loop: trivia_form
+- rule: Submit form
+  condition:
+  - active_loop: trivia_form
+  steps:
+  - action: trivia_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # - action: utter_slots_values
+  - action: action_answer
+- rule: More Info
+  steps:
+  - slot_was_set:
+    - problemType: null
+    - independentVar: null
+  - intent: quizprogress
+  - action: action_quizprogress

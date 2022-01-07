@@ -48,12 +48,6 @@ For RABuilt-in Web Widget to talk to RASA Core and Action Server
 Run this on host machine.
     ngrok start --all --config=ngrok.yml
 
-### Web Widget
-Web widget is basd on https://github.com/JiteshGaikwad/Chatbot-Widget
-
-We added [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API) (speechSynthesis and SpeechRecognition) for voice in and out to the Chatbot Widget.
-
-
 ## Directories
 ### domain
 ### data

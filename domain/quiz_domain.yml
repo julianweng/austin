@@ -23,7 +23,7 @@ slots:
     type: text
     influence_conversation: false
   requested_slot:
-    type: unfeaturized
+    type: text
     influence_conversation: false
 responses:
   utter_submit:

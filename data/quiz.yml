@@ -38,6 +38,8 @@ nlu:
     - I need more practice with [kinematics]{"entity": "problemType"}
     - help me practice [jungle juice]{"entity": "problemType"}
     - help me master [dr morgan equations]{"entity": "problemType"} please
+    - assist me with getting better at [cinematic expressions](problemType)
+    - can you help me improve at solving [pogchamp equilibrium](problemType) questions?
 rules:
 - rule: Activate form
   steps:

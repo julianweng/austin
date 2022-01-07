@@ -28,4 +28,9 @@ nlu:
     - when solving for [velocity](independentVar), how well am I doing?
     - do I get things right when the question has [energy](independentVar) as the independent variable?
     - what is my success rate with [height](independentVar) as the unknown
-    - how is my progress when solving for [jerk][independentVar]
+    - how is my progress when solving for [jerk](independentVar)
+    - when answering with [k](independentVar) do I do well?
+    - how am I doing when I'm not given [spring constant](independentVar)
+    - am I getting most right when not given [momentum](independentVar)?
+    - what is my success when calculating [nuclear energy](independentVar)
+    - can I improve when doing [geometry](problemType) problems

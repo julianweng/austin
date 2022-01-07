@@ -1,47 +1,29 @@
 version: '2.0'
-config:
-  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: false
 intents:
-- demquiz:
-    use_entities: true
-- quizprogress:
-    use_entities: true
-- askamountcorrect:
-    use_entities: true
-entities: []
+- askamountcorrect
+- demquiz
+- quizprogress
 slots:
   answer:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   correct:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   independentVar:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   trueVar:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: true
   problemType:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
+    type: text
     influence_conversation: false
   requested_slot:
-    type: rasa.shared.core.slots.UnfeaturizedSlot
-    initial_value: null
-    auto_fill: true
+    type: unfeaturized
     influence_conversation: false
 responses:
   utter_submit:
@@ -59,4 +41,3 @@ forms:
     required_slots:
       answer:
       - type: from_text
-e2e_actions: []

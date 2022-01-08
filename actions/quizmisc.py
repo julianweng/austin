@@ -49,7 +49,7 @@ class ActionQuizProgress(Action):  # not really used
             testFormat = cq.compareQuestions(
                 questions, tracker.get_slot('problemType'))
             intent_name = tracker.latest_message["intent"]["name"]
-            dispatcher.utter_message("chungus")
+            # dispatcher.utter_message("chungus")
             if (tracker.get_slot('problemType') is not None and tracker.get_slot('independentVar') is None):
                 with con:
                     df = pd.read_sql(

@@ -40,6 +40,9 @@ nlu:
     - help me master [dr morgan equations]{"entity": "problemType"} please
     - assist me with getting better at [cinematic expressions](problemType)
     - can you help me improve at solving [pogchamp equilibrium](problemType) questions?
+    - give me a question on [impulse](problemType) while solving for [force](independentVar) 
+    - give me an [impulse](problemType) problem with [height](independentVar) as the independent variable
+    - can we do a [impulse](problemType) problem without knowing [force](independentVar))
 rules:
 - rule: Activate form
   steps:
@@ -62,8 +65,8 @@ rules:
   - action: action_answer
 - rule: More Info
   steps:
+  - intent: quizprogress
   - slot_was_set:
     - problemType: null
     - independentVar: null
-  - intent: quizprogress
   - action: action_quizprogress

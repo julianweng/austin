@@ -54,10 +54,10 @@ class ActionAnswer(Action):
             dispatcher.utter_message(text="Correct!")
             with con:
                 con.executemany(sql, data)
-            return [SlotSet("answer", None), UserUttered(text="You got it right! (respond with 'stop' to exit)", parse_data={"intent": {"name": "demquiz", "confidence": 0.95}})] + [ActionExecuted("action_listen")]
+            return [SlotSet("answer", None), SlotSet("independentVar", None), SlotSet("problemType", None), UserUttered(text="You got it right! (respond with 'stop' to exit)", parse_data={"intent": {"name": "demquiz", "confidence": 0.95}})] + [ActionExecuted("action_listen")]
         elif response == "stop":
             dispatcher.utter_message(text="Stopping!")
-            return[SlotSet("answer", None)]
+            return[SlotSet("answer", None),SlotSet("independentVar", None), SlotSet("problemType", None),]
         else:
             data = [
                 (QIndex, tracker.get_slot("trueVar"), 0),
@@ -65,7 +65,7 @@ class ActionAnswer(Action):
             with con:
                 con.executemany(sql, data)
             dispatcher.utter_message(text="Wrong! Correct answer is '"+co+"'")
-            return [SlotSet("answer", None), UserUttered(text="You got it wrong! (respond with 'stop' to exit)", parse_data={"intent": {"name": "demquiz", "confidence": 0.95}})] + [ActionExecuted("action_listen")]
+            return [SlotSet("answer", None), SlotSet("independentVar", None), SlotSet("problemType", None), UserUttered(text="You got it wrong! (respond with 'stop' to exit)", parse_data={"intent": {"name": "demquiz", "confidence": 0.95}})] + [ActionExecuted("action_listen")]
 
 
 class ActionQuestion(Action):

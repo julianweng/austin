@@ -4,33 +4,35 @@ nlu:
   examples: |
     - how well am I doing?
     - How am I doing?
-    - how am I doing in [kinematic equations](problemType)?
-    - what's my progress with [stoich](problemType)
+    - how am I doing in [kinematic equations]{"entity": "problemType"}?
+    - what's my progress with [stoich]{"entity": "problemType"}
     - am I doing good
-    - how many questions am I getting right in [chemistry](problemType)
-    - am I succeeding in [physics](problemType)?
+    - how many questions am I getting right in [chemistry]{"entity": "problemType"}
+    - am I succeeding in [physics]{"entity": "problemType"}?
     - am I getting these right?
     - how many of these am I getting right?
-    - should I work more on [free fall](problemType) problems?
-    - how am I doing when solving for [height](independentVar)?
-    - am I doing well in [f equals v times c](problemType)?
-    - am I getting questions right for [multivariable calculus](problemType) or nah?
+    - should I work more on [free fall]{"entity": "problemType"} problems?
+    - how am I doing when solving for [height]{"entity": "independentVar"}?
+    - am I doing well in [f equals v times c]{"entity": "problemType"}?
+    - am I getting questions right for [multivariable calculus]{"entity": "problemType"} or nah?
     - am I succeeding?
-    - am I doing well with [kinetic energy](independentVar)
-    - how is my progress concerning [rotational velocity](problemType) problems?
-    - am I getting most questions right in [slope](problemType) questions
-    - should I practice more with [gravitational potential](problemType)?
-    - check my progress with [rotational energy](problemType)
-    - check my success in [Bon Jovi solos](problemType)
-    - how am I doing in [centripetal acceleration](problemType)
-    - check my success with [centripetal acceleration](problemType)
-    - should I improve in dealing with [friction](problemType)
-    - when solving for [velocity](independentVar), how well am I doing?
-    - do I get things right when the question has [energy](independentVar) as the independent variable?
-    - what is my success rate with [height](independentVar) as the unknown
-    - how is my progress when solving for [jerk](independentVar)
-    - when answering with [k](independentVar) do I do well?
-    - how am I doing when I'm not given [spring constant](independentVar)
-    - am I getting most right when not given [momentum](independentVar)?
-    - what is my success when calculating [nuclear energy](independentVar)
-    - can I improve when doing [geometry](problemType) problems
+    - am I doing well with [kinetic energy]{"entity": "independentVar"}
+    - how is my progress concerning [rotational velocity]{"entity": "problemType"} problems?
+    - am I getting most questions right in [slope]{"entity": "problemType"} questions
+    - should I practice more with [gravitational potential]{"entity": "problemType"}?
+    - check my progress with [rotational energy]{"entity": "problemType"}
+    - check my success in [Bon Jovi solos]{"entity": "problemType"}
+    - how am I doing in [centripetal acceleration]{"entity": "problemType"}
+    - check my success with [centripetal acceleration]{"entity": "problemType"}
+    - should I improve in dealing with [friction]{"entity": "problemType"}
+    - when solving for [velocity]{"entity": "independentVar"}, how well am I doing?
+    - do I get things right when the question has [energy]{"entity": "independentVar"} as the independent variable?
+    - what is my success rate with [height]{"entity": "independentVar"} as the unknown
+    - how is my progress when solving for [jerk]{"entity": "independentVar"}
+    - when answering with [k]{"entity": "independentVar"} do I do well?
+    - how am I doing when I'm not given [spring constant]{"entity": "independentVar"}
+    - am I getting most right when not given [momentum]{"entity": "independentVar"}?
+    - what is my success when calculating [nuclear energy]{"entity": "independentVar"}
+    - can I improve when doing [geometry]{"entity": "problemType"} problems
+    - How am I doing when solving for [f]{"entity": "independentVar"}?
+    - Am I doing well with [impulse](problemType) problems

@@ -20,9 +20,12 @@ def miscAlias():
 def oneDec(st):
     a = st.split('.')
     if(len(a)>1):
-        return a[0] + '.' + a[1][0]
+        if(len(a[1])>1):
+            return a[0] + '.' + a[1][0]
+        else:
+            return a[0] + '.' + a[1]
     else:
-        return a[0]
+        return a[0] + '.0'
 
 
 class Question:

@@ -77,16 +77,21 @@ class ActionQuestion(Action):
         global questions
         questions = []
         miscQuestions()
-        global selectedVariable
-        selectedVariable = None
+        global selectedVariables
+        selectedVariables = []
         indVar = tracker.get_slot('independentVar')
         questions = ga.getAlias(questions.copy(), pd.read_csv(
-            "actions/quiz/alias.csv"), indVar, dispatcher)
+            "actions/quiz/alias.csv"), indVar, selectedVariables, dispatcher)
         testFormat = random.choice(questions)
         if (tracker.get_slot('problemType') is not None):  # Get most similar problem type
             testFormat = cq.compareQuestions(
                 questions, tracker.get_slot('problemType'))
-
+        print(selectedVariables)
+        selectedVariable = selectedVariables[0]
+        for i in testFormat.questionTexts.keys():
+            for j in selectedVariables:
+                if i == j:
+                    selectedVariable = i
         global QIndex
         QIndex = testFormat.index
         testQuestion = 0

@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def getAlias(questions, alias, indVar, dispatcher):
+def getAlias(questions, alias, indVar, selectedVariables, dispatcher):
     questionsCopy = questions.copy()
     selVar = ""
     for index, row in alias.iterrows():
@@ -9,10 +9,12 @@ def getAlias(questions, alias, indVar, dispatcher):
         for i in differents:
             if (i == indVar):
                 selVar = row["Symbol"]
+                selectedVariables.append(row["Symbol"])
     questions = []
     for i in questionsCopy:
-        if selVar in i.questionTexts.keys():
-            questions.append(i)
+        for j in selectedVariables:
+            if j in i.questionTexts.keys():
+                questions.append(i)
     if (questions == []):
         questions = questionsCopy
         if indVar is not None:

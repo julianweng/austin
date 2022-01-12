@@ -1,5 +1,5 @@
 Symbol,Alias
-M,"mass, m, weight"
+MASS,"mass, m, weight"
 A,"acceleration, a, derivative of velocity, time derivative of velocity, centripetal acceleration"
 F,"force, f"
 V,"velocity, v, angular velocity"

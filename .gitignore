@@ -4,4 +4,5 @@ models/
 passcode*
 .*/*
 .bash_history
+results/
 */.ipynb_checkpoints/

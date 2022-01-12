@@ -87,11 +87,16 @@ class ActionQuestion(Action):
             testFormat = cq.compareQuestions(
                 questions, tracker.get_slot('problemType'))
         print(selectedVariables)
-        selectedVariable = selectedVariables[0]
-        for i in testFormat.questionTexts.keys():
-            for j in selectedVariables:
-                if i == j:
-                    selectedVariable = i
+        if(len(selectedVariables)>0):
+            selectedVariable = selectedVariables[0]
+            for i in testFormat.questionTexts.keys():
+                for j in selectedVariables:
+                    if i == j:
+                        selectedVariable = i
+        else:
+            selectedVariable = None
+        # selectedVariable = selectedVariables[0]
+
         global QIndex
         QIndex = testFormat.index
         testQuestion = 0

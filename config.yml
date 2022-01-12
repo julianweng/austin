@@ -7,7 +7,8 @@ pipeline:
   - name: SpacyNLP
     model: "en_core_web_md"
   - name: SpacyTokenizer
-  - name: SpacyEntityExtractor
+  # - name: SpacyEntityExtractor
+  - name: CRFEntityExtractor
   - name: SpacyFeaturizer
   - name: RegexFeaturizer
   - name: LexicalSyntacticFeaturizer
@@ -21,7 +22,7 @@ pipeline:
     constrain_similarities: true
   - name: EntitySynonymMapper
   - name: ResponseSelector
-    epochs: 50
+    epochs: 100
     constrain_similarities: true
 
 policies:

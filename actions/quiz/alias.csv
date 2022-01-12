@@ -1,5 +1,5 @@
 Symbol,Alias
-MASS,"mass, m, weight"
+M,"mass, m, weight"
 A,"acceleration, a, derivative of velocity, time derivative of velocity, centripetal acceleration"
 F,"force, f"
 V,"velocity, v, angular velocity"
@@ -9,3 +9,6 @@ U,"potential energy, energy, gravitational potential energy, u"
 K,"kinetic energy, k"
 J,"impulse, j"
 T,"time, t"
+PRESSURE,"pressure, p"
+VO,"volume, v"
+MOL,"mols, n, mols of matter"

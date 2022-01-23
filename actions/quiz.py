@@ -16,8 +16,6 @@ con = sl.connect('quizhistory.db')
 
 
 def miscQuestions():
-    # global questionsDict
-    # questionsDict = {}
     questionData = pd.read_csv("actions/quiz/questions.csv")
     for index, row in questionData.iterrows():
         equation = row["Equation"]
@@ -45,6 +43,7 @@ class ActionAnswer(Action):
         response = tracker.get_slot('answer')  # the given answer
         SlotSet("answer", "None")
         co = tracker.get_slot('correct')
+        QIndex = tracker.get_slot('QIndex')
         if response == co:
             data = [
                 (QIndex, tracker.get_slot("trueVar"), 1),
@@ -57,7 +56,7 @@ class ActionAnswer(Action):
             return [SlotSet("answer", None), SlotSet("independentVar", None), SlotSet("problemType", None), UserUttered(text="You got it right! (respond with 'stop' to exit)", parse_data={"intent": {"name": "demquiz", "confidence": 0.95}})] + [ActionExecuted("action_listen")]
         elif response == "stop":
             dispatcher.utter_message(text="Stopping!")
-            return[SlotSet("answer", None),SlotSet("independentVar", None), SlotSet("problemType", None),]
+            return[SlotSet("answer", None), SlotSet("independentVar", None), SlotSet("problemType", None), ]
         else:
             data = [
                 (QIndex, tracker.get_slot("trueVar"), 0),
@@ -65,7 +64,7 @@ class ActionAnswer(Action):
             with con:
                 con.executemany(sql, data)
             dispatcher.utter_message(text="Wrong! Correct answer is '"+co+"'")
-            return [SlotSet("answer", None), SlotSet("independentVar", None), SlotSet("problemType", None), UserUttered(text="You got it wrong! (respond with 'stop' to exit)", parse_data={"intent": {"name": "demquiz", "confidence": 0.95}})] + [ActionExecuted("action_listen")]
+            return [SlotSet("answer", None), SlotSet("independentVar", None), SlotSet("problemType", None), SlotSet("QIndex", None), UserUttered(text="You got it wrong! (respond with 'stop' to exit)", parse_data={"intent": {"name": "demquiz", "confidence": 0.95}})] + [ActionExecuted("action_listen")]
 
 
 class ActionQuestion(Action):
@@ -87,7 +86,7 @@ class ActionQuestion(Action):
             testFormat = cq.compareQuestions(
                 questions, tracker.get_slot('problemType'))
         print(selectedVariables)
-        if(len(selectedVariables)>0):
+        if(len(selectedVariables) > 0):
             selectedVariable = selectedVariables[0]
             for i in testFormat.questionTexts.keys():
                 for j in selectedVariables:
@@ -95,10 +94,10 @@ class ActionQuestion(Action):
                         selectedVariable = i
         else:
             selectedVariable = None
-        # selectedVariable = selectedVariables[0]
 
         global QIndex
         QIndex = testFormat.index
+       
         testQuestion = 0
         testQuestion = gq.Question(
             testFormat, selectedVariable, dispatcher)
@@ -117,4 +116,4 @@ class ActionQuestion(Action):
                 {"payload": incorrect[d-1], "title": incorrect[d-1]})
         dispatcher.utter_message(text=question, buttons=buttons)
 
-        return [SlotSet("correct", cor), SlotSet("problemType", None), SlotSet("trueVar", testQuestion.selectedVariable)]
+        return [SlotSet("correct", cor), SlotSet("problemType", None), SlotSet("trueVar", testQuestion.selectedVariable),  SlotSet("QIndex", QIndex)]

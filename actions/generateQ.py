@@ -19,8 +19,8 @@ def miscAlias():
 
 def oneDec(st):
     a = st.split('.')
-    if(len(a)>1):
-        if(len(a[1])>1):
+    if(len(a) > 1):
+        if(len(a[1]) > 1):
             return a[0] + '.' + a[1][0]
         else:
             return a[0] + '.' + a[1]
@@ -53,11 +53,7 @@ class Question:
         self.questionText = questionTexts[self.selectedVariable]
         vars.remove(self.selectedVariable)
         eq = Eq(*map(S, equation.split('=', 1)))
-        # print(eq.free_symbols)
-        # print(type(eq.free_symbols))
-        # eq2 = Eq(*map(S,["BX","BO*2**3+OW"]))
-        # print(eq2.free_symbols)
-     
+
         variableSymbols = dict([(i.name, i) for i in eq.free_symbols])
 
         for i in vars:

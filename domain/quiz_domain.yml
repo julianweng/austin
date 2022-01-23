@@ -22,6 +22,11 @@ slots:
   problemType:
     type: text
     influence_conversation: false
+  QIndex:
+    type: float
+    influence_conversation: false
+    max_value: 1.0
+    min_value: 0.0
   requested_slot:
     type: text
     influence_conversation: false

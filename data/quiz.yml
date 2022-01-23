@@ -42,8 +42,10 @@ nlu:
     - can you help me improve at solving [pogchamp equilibrium](problemType) questions?
     - give me a question on [impulse](problemType) while solving for [force](independentVar) 
     - give me an [impulse](problemType) problem with [height](independentVar) as the independent variable
-    - can we do a [impulse](problemType) problem without knowing [force](independentVar))
+    - can we do a [impulse](problemType) problem without knowing [force](independentVar)
     - quiz me with [ideal gas](problemType) problems
+    - quiz me on [krishin wadhwani](problemType) kind of problems solving for [chadness](independentVar)
+    - help me to solve for [power](independentVar) better
 rules:
 - rule: Activate form
   steps:

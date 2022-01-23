@@ -44,6 +44,22 @@ nlu:
     - give me an [impulse](problemType) problem with [height](independentVar) as the independent variable
     - can we do a [impulse](problemType) problem without knowing [force](independentVar))
     - quiz me with [ideal gas](problemType) problems
+    - can i have an example of solving for [area]{"entity": "independentVar"}
+    - help me practice getting the [volume]{"entity": "independentVar"}
+    - how do i get [length]{"entity": "independentVar"}
+    - how would i go about solving for [width]{"entity": "independentVar"}
+    - i want to do a [area]{"entity": "independentVar"} problem
+    - i need more practice solving for [density]{"entity": "independentVar"}
+    - ask me a question on [mass]{"entity": "independentVar"}
+    - quiz me on finding [volume]{"entity": "independentVar"}
+    - give me a finding [height]{"entity": "independentVar"} problem
+    - problem on how to get [acceleration]{"entity": "independentVar"}
+    - let me use method to get [velocity]{"entity": "independentVar"}
+    - give me practice on solving for [magnitude]{"entity": "independentVar"}
+    - help me practice finding [distance]{"entity": "independentVar"}
+    - finding [displacement]{"entity": "independentVar"} quiz
+    - quiz for calculating [acceleration]{"entity": "independentVar"}
+    - give me a problem on calculating [force]{"entity": "independentVar"}
 rules:
 - rule: Activate form
   steps:

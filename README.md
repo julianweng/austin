@@ -21,6 +21,12 @@ Run various containers commands (you only need the first three to talk with it a
 
 All the files in this folder will be mounted to the container, and be used by the RASA X.
 
+### How to add new questions types
+
+Navigate to /actions/quiz/questions.csv. Add a new row for every question added. For equation, enter in a symbolic equation with a "symbol" being any combination of sucessive capital letters (avoiding repeats with symbols used for other variables). The category is a placeholder for now. Aliases are a list of common phrases used to describe the equation or question type, they do not need to be all-emcompassing since the program uses a separate semantic similarity model to match what a user asks for with the correct equation type. QuestionTexts are templates for the bot to generate questions with. It is composed of a list separated with the "#" symbol of strings in the format {symbol of independent variable}: Bob has &{symbol of dependent variable} apples, how many pears does he have? Each variable that could be an independent variable must have its own entry within this list.
+
+If your new equation involves a variable that has not been included in any equation to date, navigate to /actions/quiz/alias.csv and add a new row, with the Symbol in the Symbol column and any aliases in the Aliases column (these are emcompassing).
+
 ### EndPoints
 #### credentials.yml
 For RASA X to talk to RASA Core

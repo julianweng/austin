@@ -44,6 +44,8 @@ class ActionAnswer(Action):
         SlotSet("answer", "None")
         co = tracker.get_slot('correct')
         QIndex = tracker.get_slot('QIndex')
+        sim = cq.compareGeneric("stop", response)
+        print(sim)
         if response == co:
             data = [
                 (QIndex, tracker.get_slot("trueVar"), 1),
@@ -54,7 +56,8 @@ class ActionAnswer(Action):
             with con:
                 con.executemany(sql, data)
             return [SlotSet("answer", None), SlotSet("independentVar", None), SlotSet("problemType", None), UserUttered(text="You got it right! (respond with 'stop' to exit)", parse_data={"intent": {"name": "demquiz", "confidence": 0.95}})] + [ActionExecuted("action_listen")]
-        elif response == "stop":
+        # elif response == "stop":
+        elif (sim > 0.7):
             dispatcher.utter_message(text="Stopping!")
             return[SlotSet("answer", None), SlotSet("independentVar", None), SlotSet("problemType", None), ]
         else:

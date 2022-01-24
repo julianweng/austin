@@ -6,3 +6,4 @@ passcode*
 .bash_history
 results/
 */.ipynb_checkpoints/
+*.code-workspace*

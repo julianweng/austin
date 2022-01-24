@@ -46,16 +46,17 @@ class Question:
         questionTexts = self.form.questionTexts
         equation = self.form.equation
         vars = list(questionTexts.keys())
-
+        print(vars)
         if(self.selectedVariable is None):
             self.selectedVariable = random.choice(vars)
 
         self.questionText = questionTexts[self.selectedVariable]
         vars.remove(self.selectedVariable)
+        print(vars)
         eq = Eq(*map(S, equation.split('=', 1)))
 
         variableSymbols = dict([(i.name, i) for i in eq.free_symbols])
-
+        print(variableSymbols[vars[0]])
         for i in vars:
             rando = random.randint(2, 20)
             self.otherVariables[i] = rando

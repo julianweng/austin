@@ -82,26 +82,24 @@ class ActionQuestion(Action):
         miscQuestions()
         global selectedVariables
         selectedVariables = []
+        #Filters all questions by aliases
         indVar = tracker.get_slot('independentVar')
         questions = ga.getAlias(questions.copy(), pd.read_csv(
             "actions/quiz/alias.csv"), indVar, selectedVariables, dispatcher)
-        # if(ga.getCategory() != None):
-        #     questions= ga.getCategory()
-        testFormat = random.choice(questions)
-        if (tracker.get_slot('problemType') is not None):  # Get most similar problem type
+        #Filters by category if it is a category
+        cQuestions = ga.getCategory(questions.copy(),indVar)
+        if len(cQuestions)>0:
+            questions = cQuestions
+            testFormat = random.choice(questions)
+        elif(tracker.get_slot('problemType') is not None):
+            #Chooses from all possible questions by similarity if given problem type
             testFormat = cq.compareQuestions(
                 questions, tracker.get_slot('problemType'))
-        
-        print(selectedVariables)
-        if(len(selectedVariables) > 0):
-            selectedVariable = selectedVariables[0]
-            for i in testFormat.questionTexts.keys():
-                for j in selectedVariables:
-                    if i == j:
-                        selectedVariable = i
+        elif(tracker.get_slot('independentVar') is not None):
+            #Chooses from all possible questions randomly if given variable type
+            testFormat = random.choice(questions)
         else:
-            selectedVariable = None
-        if(tracker.get_slot('problemType') is None and tracker.get_slot('independentVar') is None):
+            #Chooses based on wrongness or rightness in the history
             con = sl.connect('quizhistory.db')
             with con:
                 df = pd.read_sql(
@@ -120,19 +118,24 @@ class ActionQuestion(Action):
                 timesInserted = math.floor(100*float(rightNum)/float(row)) + 5
                 for n in range(timesInserted):
                     selectionPool.append(i)
-            print(selectionPool)
             indy = random.choice(selectionPool)
             questions = []
             miscQuestions()
             for q in questions:
                 if q.index == indy:
-                    print("finally")
                     testFormat = q
-                    selectedVariable = random.choice(list(q.questionTexts.keys()))
-            
+        if(len(selectedVariables) > 0):
+            selectedVariable = selectedVariables[0]
+            for i in testFormat.questionTexts.keys():
+                for j in selectedVariables:
+                    if i == j:
+                        selectedVariable = i
+        else:
+            selectedVariable = None
+   
+
         global QIndex
         QIndex = testFormat.index
-       
         testQuestion = 0
         testQuestion = gq.Question(
             testFormat, selectedVariable, dispatcher)

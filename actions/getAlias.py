@@ -21,16 +21,10 @@ def getAlias(questions, alias, indVar, selectedVariables, dispatcher):
             dispatcher.utter_message("This variable is not found")
     return(questions)
 
-# def getCategory(questions, indVar, dispatcher):  #LOOP THROUGH ALL QFORMATS AND ADD ALL WHICH MATCH WITH CATEGORIES
-#     questionsCopy = questions.copy()
-#     selVar = ""
-#     questions = []
-#     for i in questionsCopy:
-#         for j in selectedVariables:
-#             if j in i.questionTexts.keys():
-#                 questions.append(i)
-#     if (questions == []):
-#         questions = questionsCopy
-#         if indVar is not None:
-#             dispatcher.utter_message("This category is not found")
-#     return(questions)
+def getCategory(questions, indVar):  #LOOP THROUGH ALL QFORMATS AND ADD ALL WHICH MATCH WITH CATEGORIES
+    questionsCopy = questions.copy()
+    questions = []
+    for q in questionsCopy:
+        if q.category == indVar:
+            questions.append(q)
+    return questions

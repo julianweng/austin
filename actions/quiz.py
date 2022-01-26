@@ -84,6 +84,8 @@ class ActionQuestion(Action):
         indVar = tracker.get_slot('independentVar')
         questions = ga.getAlias(questions.copy(), pd.read_csv(
             "actions/quiz/alias.csv"), indVar, selectedVariables, dispatcher)
+        # if(ga.getCategory() != None):
+        #     questions= ga.getCategory()
         testFormat = random.choice(questions)
         if (tracker.get_slot('problemType') is not None):  # Get most similar problem type
             testFormat = cq.compareQuestions(

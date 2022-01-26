@@ -180,6 +180,7 @@ function setBotResponse(response) {
                     if (payload === "dropDown") {
                         const dropDownData = response[i].custom.data;
                         renderDropDwon(dropDownData);
+                        print("HEHEHEHEHEHEHE")
                         return;
                     }
 
@@ -432,7 +433,8 @@ var outputField = document.getElementById("userInput");
 
 function startSpeechRecognition() {
     console.log("starting speech recognition");
-    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    
     recognition = new SpeechRecognition();
     recognition.continuous = true;
 

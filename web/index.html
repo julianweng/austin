@@ -1,145 +1,173 @@
-<html>
-  <head>
-    <title>Austin</title>
+<!DOCTYPE html>
+<html lang="en">
 
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="utf-8" http-equiv="encoding" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Austin</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway:500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="static/css/materialize.min.css" />
 
-    <!--Import Google Icon Font-->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Raleway:500&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+  <!-- Simple line icons-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+    rel="stylesheet" />
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+    rel="stylesheet" type="text/css" />
+  <link href="static/css/styles.css" rel="stylesheet" />
+  <link rel="stylesheet" href="static/css/style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
-      rel="stylesheet"
-    />
-
-    <!--Import Font Awesome Icon Font-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-      integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
-      crossorigin="anonymous"
-    />
-
-    <!--Import materialize.css-->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="static/css/materialize.min.css"
-    />
-
-    <!--Main css-->
-    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-
-  <body>
-    <div class="container">
-      <H2 class="white-text">Austin</H2>
-      <!-- Modal for rendering the charts, declare this if you want to render charts, 
-         else you remove the modal -->
-      <div class="white-text">
-
-      <H3>A chatbot that helps you grasp numeric relationships and concepts, easily.</H3>
-        <h5>Simply ask for trivia, and it will help you learn.</h5>
-      <br>
-      <h5> Try running some of these:</h5>
-      <ul>
-        <li>Hey Austin, quiz me!</li>
-        <li>Give me a question on potential energy</li>
-        <li>Can we do a impulse problem without knowing force?</li>
-        <li>how am I doing in impulse</li>
-      </ul>>
-      </div>
-      <div id="modal1" class="modal">
-        <canvas id="modal-chart"></canvas>
-      </div>
-
-      <!--chatbot widget -->
-      <div class="widget">
-        <div class="chat_header">
-          <!--Add the name of the bot here -->
-          <span class="chat_header_title">Speak to Austin</span>
-          <span class="dropdown-trigger" href="#" data-target="dropdown1">
-            <i class="material-icons"> more_vert </i>
-          </span>
-          <!-- Dropdown menu-->
-          <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#" id="clear">Clear</a></li>
-            <li><a href="#" id="restart">Restart</a></li>
-            <li><a href="#" id="close">Close</a></li>
-          </ul>
-        </div>
-        <div id="talkButton">
-          <i class="fa fa-microphone" aria-hidden="true""></i>
-        </div>
-        <!--Chatbot contents goes here -->
-        <div class="chats" id="chats">
-          <div class="clearfix"></div>
-        </div>
-        <!--keypad for user to type the message -->
-        <div class="keypad">
-          <textarea
-            id="userInput"
-            placeholder="Type a message..."
-            class="usrInput"
-          ></textarea>
-
-          <div id="sendButton">
-            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-          </div>
-        </div>
-      </div>
-
-      <!--bot profile-->
-      <div class="profile_div" id="profile_div">
-        <img class="imgProfile" src="static/img/julian.jpg" />
-      </div>
-
-      <!-- Bot pop-up intro -->
-      <div class="tap-target" data-target="profile_div">
-        <div class="tap-target-content">
-          <h5 class="white-text">Hey there 👋</h5>
-          <p class="white-text">
-            I can help you get started and answer your questions.
+<body id="page-top">
+  <!-- Navigation-->
+  <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
+  <nav id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand" style="background-color: rgba(52, 58, 64, 0.2)"><a href="#page-top"
+          style="font-size: 1.2rem">Austin</a></li>
+      <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
+      <li class="sidebar-nav-item"><a href="#about">About</a></li>
+      <li class="sidebar-nav-item"><a href="#services">Services</a></li>
+    </ul>
+  </nav>
+  <!-- Header-->
+  <header class="masthead d-flex align-items-center">
+    <div class="container px-4 px-lg-5 text-center">
+      <h1 class="mb-1">Austin</h1>
+      <h3 class="mb-5"><em>An Educational Chatbot by Julian Weng</em></h3>
+      <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
+    </div>
+  </header>
+  <!-- About-->
+  <section class="content-section bg-light" id="about">
+    <div class="container px-4 px-lg-5 text-center">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-lg-10">
+          <h2>Austin is a chatbot which allows users to practice applying numerical relationships learned in class in a
+            conversational format.
+          </h2>
+          <p class="lead mb-5" id="sussy">
+            Students can reinforce learning at any time with questions customized with their answer history.
           </p>
+          <a class="btn btn-dark btn-xl" href="#features">Features</a>
         </div>
       </div>
     </div>
+  </section>
+  <!-- Services-->
+  <section class="content-section bg-primary text-white text-center" id="features">
+    <div class="container px-4 px-lg-5">
+      <div class="content-section-heading">
+        <h3 class="text-secondary mb-0">Features</h3>
+        <h2 class="mb-5">What Austin Can Do</h2>
+      </div>
+      <div class="row gx-4 gx-lg-5">
+        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+          <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-question"></i></span>
+          <h4><strong>Questions</strong></h4>
+          <p class="text-faded mb-0">Randomized questions for any combination of topic and variable.</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+          <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-globe"></i></span>
+          <h4><strong>Flexibility</strong></h4>
+          <p class="text-faded mb-0">Handles different ways of speech and asking for problems.</p>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+          <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-umbrella"></i></span>
+          <h4><strong>Breadth</strong></h4>
+          <p class="text-faded mb-0">
+            Handles any kind of discipline modelled with numerical relationships, just add to a .csv file!
+          </p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <span class="service-icon rounded-circle mx-auto mb-3"><i class="icon-rocket"></i></span>
+          <h4><strong>Customization</strong></h4>
+          <p class="text-faded mb-0">Adapts question topics and variables based on past progress.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Callout-->
+  <section class="callout">
+    <div class="container px-4 px-lg-5 text-center">
+      <h2 class="mx-auto mb-5">
+        Check out our Github!
+      </h2>
+      <a class="btn btn-primary btn-xl" href="https://github.com/julianweng/austin"><i
+          class="icon-social-github"></i></a>
+    </div>
+  </section>
 
-    <!--JavaScript at end of body for optimized loading-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script
-      type="text/javascript"
-      src="static/js/lib/materialize.min.js"
-    ></script>
-    <script src="static/js/lib/uuid.min.js"></script>
-    <!--Main Script -->
-    <script type="text/javascript" src="static/js/script.js"></script>
+  <!-- Footer-->
+  <footer class="footer text-center">
+    <div class="container px-4 px-lg-5">
+      <p class="text-muted small mb-0">Staples High School Independent Learning Project | Mentored by David Scrofani</p>
+    </div>
+  </footer>
+  <!--chatbot widget -->
+  <div class="widget">
+    <div class="chat_header">
+      <!--Add the name of the bot here -->
+      <span class="chat_header_title">Austin</span>
+      <ul style="display: inline-block; margin-top: 10.188px;">
+        <li style="display: inline-block; margin-left: 20px;"><a href="#" id="clear">Clear</a></li>
+        <li style="display: inline-block; margin-left: 10px;"><a href="#" id="restart">Restart</a></li>
+        <li style="display: inline-block; margin-left: 10px;"><a href="#" id="close">Close</a></li>
+      </ul>
+    </div>
 
-    <!--Chart.js Script -->
-    <script type="text/javascript" src="static/js/lib/chart.min.js"></script>
-    <script type="text/javascript" src="static/js/lib/showdown.min.js"></script>
-  </body>
+    <!--Chatbot contents goes here -->
+    <div class="chats" id="chats">
+      <div class="clearfix"></div>
+    </div>
+
+    <!--keypad for user to type the message -->
+    <div class="keypad">
+      <textarea id="userInput" placeholder="Type a message..." class="usrInput"></textarea>
+      <div id="sendButton">
+        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+
+  <!--bot profile-->
+  <div class="profile_div">
+    <img class="imgProfile" id="profile_div" src="static/img/pfp.jpeg" />
+  </div>
+
+  </div>
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top"><i class="fas fa-angle-up"></i></a>
+
+  <!-- Bootstrap core JS-->
+
+
+  <script type="text/javascript" src="static/js/lib/materialize.min.js"></script>
+  <script src="static/js/lib/uuid.min.js"></script>
+  <script type="text/javascript" src="static/js/lib/chart.min.js"></script>
+  <script type="text/javascript" src="static/js/lib/showdown.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="static/js/scripts.js"></script>
+  <script type="text/javascript" src="static/js/script.js"></script>
+  <!-- <script src="static/js/script.js"></script> -->
+</body>
+
 </html>

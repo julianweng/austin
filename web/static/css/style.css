@@ -1,11 +1,3 @@
-body {
-  font-family: "Open Sans", sans-serif;
-  background: url("../img/rod-long-y0OAmd_COUM-unsplash.jpg") no-repeat center center fixed;
-  background-size: cover;
-}
-
-/* ============= css related to chats =============== */
-
 .widget {
   display: none;
   width: 350px;
@@ -30,7 +22,7 @@ body {
   color: white;
   float: left;
   margin-top: 3%;
-  margin-left: 35%;
+  margin-left: 5%;
 }
 
 .chats {
@@ -172,19 +164,6 @@ blockquote {
   padding: 5px;
   border-radius: 0px 0px 10px 10px;
   border-top: 1px solid #e3e7ee;
-}
-#talkButton {
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  display: inline-block;
-  float: right;
-  margin-right: 30px;
-  text-align: center;
-  padding: 5px;
-  font-size: 20px;
-  cursor: pointer;
-  color: #060dcfc7;
 }
 
 #sendButton {

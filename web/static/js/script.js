@@ -15,10 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const elemsTap = document.querySelector(".tap-target");
   // eslint-disable-next-line no-undef
   const instancesTap = M.TapTarget.init(elemsTap, {});
-  instancesTap.open();
-  setTimeout(() => {
-    instancesTap.close();
-  }, 10000);
+  // instancesTap.open();
+  // setTimeout(() => {
+  //   instancesTap.close();
+  // }, 10000);
 });
 
 /* import components */
@@ -32,7 +32,7 @@ window.addEventListener('load', () => {
 
     // drop down menu for close, restart conversation & clear the chats.
     $(".dropdown-trigger").dropdown();
-
+    
     // initiate the modal for displaying the charts,
     // if you dont have charts, then you comment the below line
     //  $(".modal").modal();

@@ -5,6 +5,7 @@ from rasa_sdk.events import SlotSet, UserUttered, FollowupAction, ActionExecuted
 import random
 import requests
 import json
+import math
 from actions.base import BBMessage
 import pandas as pd
 import sys
@@ -90,6 +91,7 @@ class ActionQuestion(Action):
         if (tracker.get_slot('problemType') is not None):  # Get most similar problem type
             testFormat = cq.compareQuestions(
                 questions, tracker.get_slot('problemType'))
+        
         print(selectedVariables)
         if(len(selectedVariables) > 0):
             selectedVariable = selectedVariables[0]
@@ -99,7 +101,35 @@ class ActionQuestion(Action):
                         selectedVariable = i
         else:
             selectedVariable = None
-
+        if(tracker.get_slot('problemType') is None and tracker.get_slot('independentVar') is None):
+            con = sl.connect('quizhistory.db')
+            with con:
+                df = pd.read_sql(
+                    'SELECT * FROM USER WHERE right == 0', con)
+            wrongrecord = df['qid'].value_counts()
+            with con:
+                df2 = pd.read_sql(
+                    'SELECT * FROM USER', con)
+            allrecord = df2['qid'].value_counts()
+            selectionPool = []
+            for i, row in allrecord.iteritems():
+                if wrongrecord[i] is not None:
+                    rightNum = wrongrecord[i]
+                else:
+                    rightNum = 0
+                timesInserted = math.floor(100*float(rightNum)/float(row)) + 5
+                for n in range(timesInserted):
+                    selectionPool.append(i)
+            print(selectionPool)
+            indy = random.choice(selectionPool)
+            questions = []
+            miscQuestions()
+            for q in questions:
+                if q.index == indy:
+                    print("finally")
+                    testFormat = q
+                    selectedVariable = random.choice(list(q.questionTexts.keys()))
+            
         global QIndex
         QIndex = testFormat.index
        

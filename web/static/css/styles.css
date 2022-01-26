@@ -75,7 +75,6 @@
     scroll-behavior: smooth;
   }
 }
-
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -11435,7 +11434,7 @@ html {
 
 .callout {
   padding: 15rem 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("../../assets/img/bg-callout.jpg");
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 1) 100%), url("../../assets/img/mourizal-zativa.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -11450,6 +11449,7 @@ html {
 footer.footer {
   padding-top: 2rem;
   padding-bottom: 2rem;
+  background-color: #000;
 }
 footer.footer .social-link {
   display: block;

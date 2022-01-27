@@ -36,3 +36,16 @@ nlu:
     - can I improve when doing [geometry]{"entity": "problemType"} problems
     - How am I doing when solving for [f]{"entity": "independentVar"}?
     - Am I doing well with [impulse](problemType) problems
+    - am i good at [multi-body](problemType)?
+    - am i bad at [impulse](problemType) problems?
+    - how am i at [impulse](problemType) problems?
+    - can you check my progress in [impulse](problemType) problems?
+    - what is my progress in problems where I solve for [nuclear energy]{"entity": "independentVar"}?
+    - how am i doing with problems that have [energy]{"entity": "independentVar"}?
+    - am i good at problems that have [energy]{"entity": "independentVar"} as a variable?
+    - what do i improve on in general?
+    - show me how im doing in [impulse](problemType) problems
+    - tell me if i'm doing well in problems where you need to solve for {"entity": "independentVar"}
+    - can you tell me if i'm doing badly in [impulse](problemType) problems?
+    - i want to check my progress in [impulse](problemType) problems
+    - am i excelling at [impulse](problemType) problems?

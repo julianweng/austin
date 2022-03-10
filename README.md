@@ -2,6 +2,10 @@
 
 ### *A chatbot that helps you grasp numeric relationships and concepts with conversational ease.*
 
+* Dynamically generates questions and presents it in a conversational manner.
+* Easily adaptable to any topic area with numerical relationships.
+* Answers to user requests for certain questions with flexibility according to wording.
+* Intelligently chooses variable solved for and topic area based on past usage history.
 
 ## How-Tos
 ### Use existing container
